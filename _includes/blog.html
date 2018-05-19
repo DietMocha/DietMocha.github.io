@@ -1,33 +1,33 @@
-<div class="user-details">
-  <h1> Featured Projects </h1>
-</div>
-<div class="user-projects">
-  <div class="images-right">
-    <img alt="interpreter" src="{{ "/assets/img/interpreter.png" | prepend: site.baseurl }}" />
+
+<section>
+{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% capture next_year %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+{% if year != next_year %}
+
+  {% unless forloop.first %}
+    </div>
   </div>
-  <div class="contents">
-    <h3> ASL Translator <img src="https://img.shields.io/badge/python-3.6.3-blue.svg"></h3>
-    <ul>
-      <li> Convelutional Neural Network</li>
-      <li> Confusion Matrix</li>
-      <li> ROC Curve</li>
-    </ul>
-    <p> This is an image-based translator for American Sign Language. It reads images and can classify them based on the ASL alphebet. I am interested in pushing this project until it mirrors the ease of the Google Translate. <!--<a class="project-more" href="ASLT">Read more...</a>--></p>
-    <a class="project-link" href="https://github.com/DietMocha/ASL_translator">Check it out</a>
+  {% endunless %}
+
+  <div>
+    <h2>{{ post.date | date: '%Y' }}</h2>
+    <div>
+
+{% endif %}
+{% endunless %}
+
+  <article>
+    <a href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title }}</a>
+    <div class="post-date">
+      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+    </div>
+  </article>
+
+  {% if forloop.last %}
+    </div>
   </div>
-</div>
-<div class="user-projects">
-  <div class="images-left">
-    <img alt="reward" src="{{ "/assets/img/reward.png" | prepend: site.baseurl }}" />
-  </div>
-  <div class="contents-right">
-    <h3> Scheduled Binger <img src="https://img.shields.io/badge/python-3.6.3-blue.svg"></h3>
-    <ul>
-      <li> Airbnb's Airflow</li>
-      <li> NLP</li>
-      <li> Web Scraping</li>
-    </ul>
-    <p>I am studying the automation of code  Airbnb's through Airflow. It will be a bot that bings the latest trending topics to send reward points to my microsoft account. Doing what I need by hand is very time consuming.</p>
-    <a class="project-link" href="¯\_(ツ)_/¯">Not Ready</a>
-  </div>
-</div>
+  {% endif %}
+
+{% endfor %}
+</section>
