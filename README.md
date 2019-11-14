@@ -2,7 +2,7 @@
 
 ![](./particle.jpg)
 
-This is a simple and minimalist template for Jekyll designed for developers that want to show of their portfolio.
+This is a simple and minimalist template for Jekyll designed for developers that want to show off their portfolio.
 
 The Theme features:
 
